@@ -1,5 +1,10 @@
+# Said Adem
+# 1000873053
+# 04/21/2019
+
 from tabulate import tabulate
 import numpy as np
+import time
 
 #Makes a formatted table to display node tables
 def tab(nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix):
@@ -73,7 +78,145 @@ def update(eval,nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix):
 
     return eval
 
+def stepin(nodeone, nodetwo, nodethree, nodefour, nodefive, nodesix):
+    print("input \"next\" to continue and anything else to cancel")
+    print()
+    print("iteration 1:")
+    print("----------------------------------")
+    print()
+    #formatted table
+    tab(nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
+    nextstep = input("continue: ")
+    if nextstep != "next":
+        return(nodeone, nodetwo, nodethree, nodefour, nodefive, nodesix)
+    #updates the costs of the nodes then prints them in a formatted table
+    print()
+    print("iteration 2:")
+    print("----------------------------------")
+    print()
+    nodeone = update(nodeone, nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
+    tab(nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
+    nextstep = input("continue: ")
+    if nextstep != "next":
+        return(nodeone, nodetwo, nodethree, nodefour, nodefive, nodesix)
+    print()
+    print("iteration 3:")
+    print("----------------------------------")
+    print()
+    nodetwo = update(nodetwo, nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
+    tab(nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
+    nextstep = input("continue: ")
+    if nextstep != "next":
+        return(nodeone, nodetwo, nodethree, nodefour, nodefive, nodesix)
+    print()
+    print("iteration 4:")
+    print("----------------------------------")
+    print()
+    nodethree = update(nodethree, nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
+    tab(nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
+    nextstep = input("continue: ")
+    if nextstep != "next":
+        return(nodeone, nodetwo, nodethree, nodefour, nodefive, nodesix)
+    print()
+    print("iteration 5:")
+    print("----------------------------------")
+    print()
+    nodefour = update(nodefour, nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
+    tab(nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
+    nextstep = input("continue: ")
+    if nextstep != "next":
+        return(nodeone, nodetwo, nodethree, nodefour, nodefive, nodesix)
+    print()
+    print("iteration 6:")
+    print("----------------------------------")
+    print()
+    nodefive = update(nodefive, nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
+    tab(nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
+    nextstep = input("continue: ")
+    if nextstep != "next":
+        return(nodeone, nodetwo, nodethree, nodefour, nodefive, nodesix)
+    print()
+    print("iteration 7:")
+    print("----------------------------------")
+    print()
+    nodesix = update(nodesix, nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
+    tab(nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
+    nextstep = input("continue: ")
+    if nextstep != "next":
+        return(nodeone, nodetwo, nodethree, nodefour, nodefive, nodesix)
+    
+    #store current iteration in comptable to run the while loop
+    comptable  = [nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix]
+    comptable2 = []
+    #counter for incrementing iteration
+    counter = 8
 
+    while comptable != comptable2:
+        print()
+        print(f"iteration {counter}:")
+        print("----------------------------------")
+        print()
+        nodeone = update(nodeone, nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
+        tab(nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
+        counter+=1
+        nextstep = input("continue: ")
+        if nextstep != "next":
+            return(nodeone, nodetwo, nodethree, nodefour, nodefive, nodesix)
+        print()
+        print(f"iteration {counter}:")
+        print("----------------------------------")
+        print()
+        nodetwo = update(nodetwo, nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
+        tab(nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
+        counter+=1
+        nextstep = input("continue: ")
+        if nextstep != "next":
+            return(nodeone, nodetwo, nodethree, nodefour, nodefive, nodesix)
+        print()
+        print(f"iteration {counter}:")
+        print("----------------------------------")
+        print()
+        nodethree = update(nodethree, nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
+        tab(nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
+        counter+=1
+        nextstep = input("continue: ")
+        if nextstep != "next":
+            return(nodeone, nodetwo, nodethree, nodefour, nodefive, nodesix)
+        print()
+        print(f"iteration {counter}:")
+        print("----------------------------------")
+        print()
+        nodefour = update(nodefour, nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
+        tab(nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
+        counter+=1
+        nextstep = input("continue: ")
+        if nextstep != "next":
+            return(nodeone, nodetwo, nodethree, nodefour, nodefive, nodesix)
+        print()
+        print(f"iteration {counter}:")
+        print("----------------------------------")
+        print()
+        nodefive = update(nodefive, nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
+        tab(nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
+        counter+=1
+        nextstep = input("continue: ")
+        if nextstep != "next":
+            return(nodeone, nodetwo, nodethree, nodefour, nodefive, nodesix)
+        comptable  = [nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix]
+        print()
+        print(f"iteration {counter}:")
+        print("----------------------------------")
+        print()
+        nodesix = update(nodesix, nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
+        tab(nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
+        counter+=1
+        nextstep = input("continue: ")
+        if nextstep != "next":
+            return(nodeone, nodetwo, nodethree, nodefour, nodefive, nodesix)
+        comptable2  = [nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix]
+        if comptable == comptable2:
+            break
+    return(nodeone, nodetwo, nodethree, nodefour, nodefive, nodesix)
 
 def main():
     #initialize a 2d list to later store each row as a seperate node
@@ -86,17 +229,16 @@ def main():
     [float( '+inf' ), float( '+inf' ), float( '+inf' ), float( '+inf' ), float( '+inf' ), float( '+inf' )]
     ]
 
-
+    print("Hello user! Please enter the name of the file you will be using to obtain our nodes.")
+    print("Please be aware that only .txt will work")
+    filename = input("Enter Filename: ")
+    print()
     #opens the .txt file and prints the initial nodes and their link costs
-    with open("nodes.txt", "r") as f:
+    with open(filename + ".txt", "r") as f:
         for line in f:
             node1, node2, link = line.split()
             print(f'Node {node1} to {node2} has a link of {link}')
 
-    print()
-    print("first iteration")
-    print("----------------------------------")
-    print()
 
     #stores the link cost to their respective nodes
     with open("nodes.txt", "r") as f:
@@ -117,129 +259,128 @@ def main():
     nodefive = table[4]
     nodesix = table[5]
 
+    print()    
+    print("Enter \"step\" to go step by step or \"stable\" to go until the system hits a stable state?")
+    answer = input("How would you like to proceed: ")
+    
+    #####################################################################################################
+    # Nodes update in a step by step matter (passed into stepin function)
+    #####################################################################################################
 
-    #formatted table
-    tab(nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
+    if answer == 'step':
+        stepin(nodeone, nodetwo, nodethree, nodefour, nodefive, nodesix)
+        print("Links are in stable state")
 
-    #updates the costs of the nodes then prints them in a formatted table
-    print()
-    print("iteration 1:")
-    print("----------------------------------")
-    print()
-    nodeone = update(nodeone, nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
-    tab(nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
-    print()
-    print("iteration 2:")
-    print("----------------------------------")
-    print()
-    nodetwo = update(nodetwo, nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
-    tab(nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
-    print()
-    print("iteration 3:")
-    print("----------------------------------")
-    print()
-    nodethree = update(nodethree, nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
-    tab(nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
-    print()
-    print("iteration 4:")
-    print("----------------------------------")
-    print()
-    nodefour = update(nodefour, nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
-    tab(nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
-    print()
-    print("iteration 5:")
-    print("----------------------------------")
-    print()
-    nodefive = update(nodefive, nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
-    tab(nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
-    print()
-    print("iteration 6:")
-    print("----------------------------------")
-    print()
-    nodesix = update(nodesix, nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
-    tab(nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
+    #####################################################################################################
+    # Nodes update until they are stable
+    #####################################################################################################
 
-    comptable  = [nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix]
-    print(comptable)
-    comptable2 = []
-    print(comptable)
-    counter = 7
-    print(comptable == comptable2)
+    elif answer == 'stable':
+        #records the start of the execution
+        start = time.time()
+        print()
+        print("iteration 1:")
+        print("----------------------------------")
+        print()
+        #formatted table
+        tab(nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
 
-    while comptable != comptable2:
+        #updates the costs of the nodes then prints them in a formatted table
+        print()
+        print("iteration 2:")
+        print("----------------------------------")
+        print()
         nodeone = update(nodeone, nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
-        comptable2 = [nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix]
-        print()
-        print(f"iteration {counter}:")
-        counter+=1
-        print("----------------------------------")
-        print()
         tab(nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
-        #should fail
-        print(comptable)
+        print()
+        print("iteration 3:")
         print("----------------------------------")
-        print(comptable2)
-        print("----------------------------------")
-        print(comptable == comptable2)
-        if comptable == comptable2:
-            break
-        comptable  = [nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix]
+        print()
         nodetwo = update(nodetwo, nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
-        comptable2 = [nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix]
+        tab(nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
         print()
-        print(f"iteration {counter}:")
-        counter+=1
+        print("iteration 4:")
         print("----------------------------------")
         print()
-        tab(nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
-        if comptable == comptable2:
-            break
-        comptable  = [nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix]
         nodethree = update(nodethree, nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
-        comptable2 = [nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix]
+        tab(nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
         print()
-        print(f"iteration {counter}:")
-        counter+=1
+        print("iteration 5:")
         print("----------------------------------")
         print()
-        tab(nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
-        if comptable == comptable2:
-            break
-        comptable  = [nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix]
         nodefour = update(nodefour, nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
-        comptable2 = [nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix]
+        tab(nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
         print()
-        print(f"iteration {counter}:")
-        counter+=1
+        print("iteration 6:")
         print("----------------------------------")
         print()
-        tab(nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
-        if comptable == comptable2:
-            break
-        comptable  = [nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix]
         nodefive = update(nodefive, nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
-        comptable2 = [nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix]
+        tab(nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
         print()
-        print(f"iteration {counter}:")
-        counter+=1
+        print("iteration 7:")
         print("----------------------------------")
         print()
-        tab(nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
-        if comptable == comptable2:
-            break
-        comptable  = [nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix]
         nodesix = update(nodesix, nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
-        comptable2 = [nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix]
-        print()
-        print(f"iteration {counter}:")
-        counter+=1
-        print("----------------------------------")
-        print()
         tab(nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
-        if comptable == comptable2:
-            break
         
+        #store current iteration in comptable to run the while loop
+        comptable  = [nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix]
+        comptable2 = []
+        #counter for incrementing iteration
+        counter = 8
+
+        while comptable != comptable2:
+            print()
+            print(f"iteration {counter}:")
+            print("----------------------------------")
+            print()
+            nodeone = update(nodeone, nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
+            tab(nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
+            counter+=1
+            print()
+            print(f"iteration {counter}:")
+            print("----------------------------------")
+            print()
+            nodetwo = update(nodetwo, nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
+            tab(nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
+            counter+=1
+            print()
+            print(f"iteration {counter}:")
+            print("----------------------------------")
+            print()
+            nodethree = update(nodethree, nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
+            tab(nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
+            counter+=1
+            print()
+            print(f"iteration {counter}:")
+            print("----------------------------------")
+            print()
+            nodefour = update(nodefour, nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
+            tab(nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
+            counter+=1
+            print()
+            print(f"iteration {counter}:")
+            print("----------------------------------")
+            print()
+            nodefive = update(nodefive, nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
+            tab(nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
+            counter+=1
+            comptable  = [nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix]
+            print()
+            print(f"iteration {counter}:")
+            print("----------------------------------")
+            print()
+            nodesix = update(nodesix, nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
+            tab(nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix)
+            counter+=1
+            comptable2  = [nodeone,nodetwo,nodethree,nodefour,nodefive,nodesix]
+            if comptable == comptable2:
+                break
         
+        #records the end of the execution
+        end = time.time()
+        print(f"Total execution time was: {end-start}s")
+        print("Links are in stable state")
 
 
 if __name__ == "__main__":
